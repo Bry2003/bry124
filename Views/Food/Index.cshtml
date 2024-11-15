@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FoodDelivery4.Models.food>
+
+<h2>Food Items</h2>
+<a asp-action="Create">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th> <!-- New Column for Image -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Food Image" style="max-width: 100px; max-height: 100px;" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Name">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Name">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Name">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

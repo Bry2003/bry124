@@ -1,0 +1,15 @@
+﻿@model FoodDelivery4.Models.CatFact
+
+@{
+    ViewData["Title"] = "Cat Fact";
+}
+
+<h1>Cat Fact</h1>
+
+<div>
+    <h3>Your Cat Fact:</h3>
+    <p>@Model.Fact</p>
+</div>
+
+<a href="@Url.Action("Index", "CatController1")">Get Another Cat Fact</a>
+
